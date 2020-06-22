@@ -1,0 +1,341 @@
+// TODO: move slider related styles to separate file
+// ----- Slider -----
+.slick-slider {
+  -webkit-user-select: text !important;
+  -khtml-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}
+.slick-list.draggable {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 86px;
+  z-index: 1;
+  height: 80px;
+  width: 36px;
+  border-radius: $default-border-radius;
+
+  background-size: 10px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+
+  cursor: pointer;
+
+  transition: background-color .2s;
+  &:hover {
+    background-color: $main-color;
+  }
+
+  &__prev {
+    left: -1px;
+    background-image: url(../assets/icons/arrow-left.png);
+    box-shadow: 1px 0 2px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  &__next {
+    right: -4px;
+    background-image: url(../assets/icons/arrow-right.png);
+    box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+// ----- /Slider -----
+
+.recommend {
+  padding-top: 52px;
+  padding-bottom: 52px;
+
+  &-text {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      margin: 0;
+      @include font-heavy(30px);
+      text-transform: uppercase;
+    }
+  }
+
+  &-slider {
+    position: relative;
+    overflow: hidden;
+
+    // slick margin fix see https://github.com/kenwheeler/slick/issues/582 for more info
+    /* slider item */
+    .recommend-item {
+      margin: 0 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:nth-child(2) {
+        margin-left: 10px;
+      }
+    }
+
+    /* the parent */
+    .slick-list {
+      margin: 0 -10px !important; 
+    }
+    
+    .slick-disabled {
+      display: none !important;
+    }
+  }
+
+  &-item {
+    width: 252px;
+    outline: none;
+
+    // slick margin fix see https://github.com/kenwheeler/slick/issues/582 for more info
+    & + & {
+      margin-left: 20px;
+      margin-right: 0;
+    }
+  }
+
+  &-pic {
+    position: relative;
+    margin-bottom: 16px;
+
+    &__img {
+      width: 100%;
+    }
+
+    &__label {
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      padding: 8px 16px;
+
+      box-shadow: 2px 0 3px 0 rgba(0, 0, 0, 0.3);
+      border-top-right-radius: $default-border-radius;
+      border-bottom-right-radius: $default-border-radius;
+      background-color: $main-color;
+
+      @include font-heavy(20px);
+      color: white;
+      text-transform: uppercase;
+    }
+
+    &__action {
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      background: url(../assets/icons/ic-heart.svg) center no-repeat;
+      background-size: 20px 17px;
+      background-color: white;
+      border-radius: 20px;
+      cursor: pointer;
+
+      transition: background-color .2s;
+
+      &:hover {
+        background-color: $main-color;
+      }
+    }
+  }
+
+  &-title {
+    display: block;
+    margin-bottom: 8px;
+
+    @include font(600, 18px);
+    color: $text-main-color;
+
+    transition: color .2s;
+    &:hover {
+      color: $main-color;
+    }
+  }
+
+  &-main-info {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-price {
+    display: flex;
+    align-items: center;
+
+    @include font-heavy(18px);
+    color: $text-main-color;
+
+    &__old {
+      margin-right: 8px;
+
+      @include font(400, 16px);
+      color: $text-main-color;
+      text-decoration: line-through;
+    }
+
+    &__new {
+      @include font-heavy(18px);
+      color: $main-color;
+    }
+  }
+  
+  &-colors {
+    display: flex;
+
+    &__item {
+      height: 16px;
+      width: 16px;
+      border-radius: 8px;
+
+      & + & {
+        margin-left: 6px;
+      }
+    }
+  }
+
+  &-review {
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    
+    &__stars {
+      margin-right: 8px;
+      color: $text-main-color;
+    }
+
+    &__text {
+      @include font(400, 14px);
+    }
+  }
+
+  &-cons {
+    @include font(400, 14px);
+    color: #c1c1c1;
+  }
+
+
+
+  @media (min-width: 1440px) {
+
+  }
+
+  @media (min-width: 1200px) and (max-width: 1439px) {
+    &-title {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    &-title {
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    &-title {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 24px;
+    padding-bottom: 25px;
+
+
+    &-text {
+      &__title {
+        font-size: 18px;
+      }
+    }
+
+    &-title:hover {
+      color: $text-main-color;
+    }
+
+    &-pic__action:hover {
+      background-color: white;
+    }
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+
+  }
+
+  @media (max-width: 575px) {
+    &-container:last-child {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &-slider {
+      .slick-list {
+        margin: 0 !important;
+      }
+    }
+
+    &-item {
+      width: 152px;
+    }
+
+    &-pic {
+      &__label {
+        padding: 4px 8px;
+        font-size: 13px;
+      }
+
+      &__action {
+        width: 32px;
+        height: 32px;
+        background-size: 16px 14px;
+      }
+    }
+
+    &-descr {
+      padding-left: 8px;
+    }
+
+    &-title {
+      font-size: 13px;
+    }
+
+    &-price {
+      font-size: 13px;
+      &__old {
+        font-size: 11px;
+      }
+
+      &__new {
+        font-size: 13px;
+      }
+    }
+
+    &-colors {
+      &__item {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    &-review {
+      &__stars {
+        margin-top: 4px;
+        font-size: 8px;
+      }
+    }
+
+    &-cons {
+      font-size: 11px;
+    }
+  }
+}

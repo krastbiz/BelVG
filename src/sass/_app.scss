@@ -1,0 +1,103 @@
+// ----- variables -----
+$promo-color: #de598e;
+
+$main-color: #ef689d;
+$text-title: #2b6281;
+$text-main-color: #606060;
+
+$default-border-radius: 4px;
+$default-border-color: #e7e7e7;
+
+$input-border: #dedede;
+$input-text-color: #b9b9b9;
+
+// ----- /variables -----
+
+// ----- UI ------
+.text {
+  &-title {
+    @include font(600, 30px);
+    color: $text-title;
+  }
+
+  &-action {
+    color: $main-color;
+    @include font(600, 16px);
+  }
+}
+// ----- /UI -----
+
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .text {
+    &-action {
+      font-size: 13px;
+    }
+  }
+}
+
+// <grid>
+.d-flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.container {
+  margin: 0 auto;
+
+  @media (min-width: 1440px) {
+    width: 1440px;
+    padding: 0px 52px;
+  }
+
+  @media (min-width: 1200px) and (max-width: 1439px) {
+    width: 1140px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    width: 960px;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    width: 720px;
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    padding: 0px 16px;
+    width: 540px;
+  }
+
+  @media (max-width: 575px) {
+    padding: 0px 16px;
+    width: auto
+  }
+}
+
+.p-empty {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+// </grid>
+
+
+
+

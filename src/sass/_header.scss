@@ -1,0 +1,412 @@
+.header {
+
+  border-bottom: 1px solid $default-border-color;
+
+  &-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+  }
+
+  &__logo {
+    margin-right: 40px;
+  }
+
+  &-bar {
+    flex-grow: 1;
+
+    .header-nav {
+      li {
+        transition: color .2s;
+
+        &:hover {
+          color: $main-color;
+        }
+      }
+
+      &__dropdown {
+        position: relative;
+
+        &:hover {
+          .header-nav__submenu {
+            display: block;
+          }
+        }
+      }
+
+      &__submenu {
+        display: none;
+        position: absolute;
+        padding: 10px;
+        top: 100%;
+        left: 0;
+        min-width: 130px;
+        box-shadow: 0px 3px 4px -2px rgba(0,0,0,0.55);
+  
+        background-color: white;
+
+        li + li {
+          margin-top: 5px;
+        }
+      }
+      
+    }
+
+    .header-products__link {
+      transition: color .2s;
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+
+  &-sidebar {
+    display: none;
+
+    &--active {
+
+      .header-sidebar__menu {
+        left: 0%;
+      }
+
+      .header-sidebar__menu-overlay {
+        display: block;
+      }
+    }
+
+    &__menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      z-index: 2;
+      padding: 20px 10px;
+      width: 50%;
+      max-height: 100%;
+      overflow: auto;
+
+      background-color: white;
+      box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.45);
+
+      transition: all .5s;
+
+      &-overlay {
+        display: none;
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgba($color: #ffffff, $alpha: .5);
+      }
+
+      .search-form {
+        margin-bottom: 12px;
+      }
+    }
+
+    .header-nav {
+      display: block;
+
+      > li + li {
+        margin-left: 0;
+        margin-top: 5px;
+      }
+
+      &__link {
+        display: block;
+      }
+
+      &__submenu {
+        opacity: 0;
+        height: 0px;
+        overflow: hidden;
+        padding-left: 10px;
+        transition: all .5s;
+        > li {
+          padding-top: 5px;
+        }
+      }
+
+      &__dropdown--active {
+        .header-nav__submenu {
+          opacity: 1;
+          height: auto;
+        }
+      }
+    }
+
+    .header-products {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+
+      > li + li {
+        margin-top: 5px;
+      }
+
+      &__link {
+        display: block;
+      }
+    }
+  }
+
+  &-toggle {
+    &-menu {
+      width: 22px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    &-search {
+      width: 20px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &-nav {
+    margin-bottom: 12px;
+
+    display: flex;
+
+    @include font(600, 14px);
+    text-transform: uppercase;
+    color: $text-main-color;
+
+    > li + li {
+      margin-left: 48px;
+    }
+
+    &__dropdown {
+      position: relative;
+      cursor: pointer;
+
+      > a {
+        &::after {
+          content: "\f107";
+          margin-left: 8px;
+          font-family: "Font Awesome 5 Free";
+
+        }
+      }
+    }
+
+    li {
+      color: $text-main-color
+    }
+  }
+
+  &-actions {
+    margin-bottom: 20px;
+    display: flex;
+
+    &__search {
+      flex: 1;
+    }
+  }
+
+  &-products {
+    display: flex;
+    justify-content: space-between;
+
+    @include font(900, 16px);
+    text-transform: uppercase;
+    color: $text-main-color;
+  }
+
+  &-userbar {
+    margin-left: 158px;
+    padding-right: 10px;
+
+    display: flex;
+    align-items: center;
+
+    &__item {
+      height: 28px;
+      width: 28px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      cursor: pointer;
+
+      & + & {
+        margin-left: 40px;
+      }
+    }
+
+    &__favourites {
+      background-image: url(../assets/icons/ic-heart.svg);
+    }
+
+    &__profile {
+      background-image: url(../assets/icons/ic-user.svg);
+    }
+
+    &__cart {
+      position: relative;
+      background-image: url(../assets/icons/ic-cart.svg);
+    }
+  }
+
+
+
+  @media (min-width: 1440px) {
+    &__logo {}
+
+    &-bar {}
+
+    &-nav {}
+
+    &-actions {}
+
+    &-products {}
+  }
+
+  @media (min-width: 1200px) and (max-width: 1439px) {
+    &__logo {}
+
+    &-bar {}
+
+    &-nav {}
+
+    &-actions {}
+
+    &-products {}
+
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    &__logo {}
+
+    &-bar {}
+  
+    &-nav {}
+  
+    &-actions {}
+  
+    &-products {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    &__logo {}
+
+    &-bar {}
+  
+    &-nav {}
+  
+    &-actions {}
+  
+    &-products {
+      font-size: 10px;
+    }
+
+    &-userbar {
+      margin-left: 40px;
+    }
+  }
+
+  @media (max-width: 767px) {
+
+    position: relative;
+
+    &-container {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-right: 0;
+      max-width: 70px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &-bar {
+      display: flex;
+      flex-grow: unset;
+    }
+  
+    &-sidebar {
+      display: flex;
+    }
+
+    &-toggle {
+      &-menu {
+        margin-right: 24px;
+      }
+    }
+
+    &-nav {
+      display: none;
+    }
+  
+    &-actions {
+      margin-bottom: 0;
+      align-items: center;
+
+      &__search {
+        display: none;
+      }
+    }
+  
+    &-userbar {
+      margin-left: 0;
+
+      &__item + &__item {
+        margin-left: 0;
+      }
+
+      &__profile {
+        margin-left: 0;
+        margin-right: 15px;
+      }
+
+      &__favourites {
+        display: none;
+      }
+    }
+
+    &-products {
+      display: none;
+    }    
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+  }
+
+  @media (max-width: 575px) {
+
+    &-container {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    &__logo {
+      max-width: 36px;
+    }
+
+    &-bar {}
+  
+    &-nav {}
+  
+    &-actions {}
+  
+    &-products {}
+  }
+}

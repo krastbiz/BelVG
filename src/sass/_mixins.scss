@@ -1,0 +1,10 @@
+@mixin font($font-weight, $font-size) {
+  font-family: 'Rooney Sans', sans-serif;
+  font-weight: $font-weight;
+  font-size: $font-size;
+}
+
+@mixin font-heavy($font-size) {
+  font-family: 'Rooney Sans Heavy', sans-serif;
+  font-size: $font-size;
+}

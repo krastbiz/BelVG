@@ -1,0 +1,208 @@
+.offer {
+  &-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &-signup {
+    padding: 18px 0px;
+    background-color: #d6f2ff;
+
+    .offer-cta__text {
+      margin-bottom: 13px;
+    }
+
+    .offer-btn {
+      margin-left: 40px;
+    }
+  }
+
+  &-subscribe {
+    padding-top: 40px;
+    padding-bottom: 32px;
+
+    .offer-cta__text {
+      margin-top: 14px;
+    }
+  }
+
+  &-cta {
+    margin-right: 80px;
+    text-align: center;
+
+    &__text {
+      @include font(600, 18px);
+      color: $text-title;
+    }
+  }
+
+  &-example {
+    flex: 1;
+    padding: 11px 76px;
+    @include font(600, 30px);
+    text-align: center;
+    color: $text-title;
+    background-color: white;
+  }
+
+  &-btn {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  &-form {
+    display: flex;
+    flex: 1;
+
+    &__input {
+      flex: 1;
+      padding: 18px 0px 18px 24px;
+      border: 1px solid $input-border;
+      border-right: 0px solid transparent;
+      border-top-left-radius: $default-border-radius;
+      border-bottom-left-radius: $default-border-radius;
+      outline: none;
+
+      color: $text-main-color;
+
+      @include font(600, 18px);
+      &::placeholder {
+        color: $input-text-color;
+      }
+    }
+
+    &__submit {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+  }
+
+
+  @media (min-width: 1440px) {
+  }
+
+  @media (min-width: 1200px) and (max-width: 1439px) {
+    &-example {
+      padding: 11px 11px;
+    }
+
+    &-cta {
+      margin-right: 20px;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+
+    &-signup {
+      .offer-btn {
+        margin-left: 10px;
+      }
+    }
+
+    &-example {
+      padding: 21px 11px;
+      font-size: 16px;
+    }
+
+    &-cta {
+      margin-right: 20px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+
+    &-container {
+      flex-direction: column;
+    }
+
+    &-signup {
+      display: none;
+    }
+
+    &-example {
+      padding: 21px 11px;
+      font-size: 16px;
+    }
+
+    &-cta {
+      margin-right: 0px;
+      margin-bottom: 20px;
+    }
+
+    &-btn {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    &-form {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    
+    &-container {
+      flex-direction: column;
+    }
+
+    &-signup {
+      display: none;
+    }
+
+    &-subscribe {
+      padding-top: 25px;
+      padding-bottom: 19px;
+
+      .offer-cta__text {
+        margin-top: 8px;
+      }
+    }
+
+    &-cta {
+      margin-right: 0px;
+      margin-bottom: 8px;
+
+      &__text {
+        font-size: 12px;
+      }
+
+      &__img {
+        max-width: 100%;
+      }
+    }
+
+    &-btn {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    &-form {
+      width:100%;
+
+      &__input {
+        padding: 8px 0px 8px 12px;
+      }
+    }
+
+  }
+
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    &-cta {
+      &__img {
+        width: 80%;
+      }
+    }
+  }
+
+  @media (max-width: 374px) {
+    &-form__input {
+      width: 70%;
+    }
+
+    &-btn {
+      padding-left: 14px;
+      padding-right: 14px;
+    }
+  }
+}
